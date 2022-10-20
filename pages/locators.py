@@ -17,6 +17,13 @@ class ProductPageLocators():
     ITEM_2 = (By.ID, "item_0_title_link")
     ADD_TO_CART_ITEM_2_BUTTON = (By.ID, "add-to-cart-sauce-labs-bike-light")
     REMOVE_ITEM_2_BUTTON = (By.ID, "remove-sauce-labs-bike-light")
+    PRODUCTS_SORTING = (By.CLASS_NAME, "product_sort_container")
+    SORT_BY_PRICE_LOW_TO_HIGH = (By.CSS_SELECTOR, "option[value='lohi']")
+    SORT_BY_PRICE_HIGH_TO_LOW = (By.CSS_SELECTOR, "option[value='hilo']")
+    SORT_BY_NAME_FROM_A_TO_Z = (By.CSS_SELECTOR, "option[value='az']")
+    SORT_BY_NAME_FROM_Z_TO_A = (By.CSS_SELECTOR, "option[value='za']")
+    SORTED_BY_PRICE_ITEMS_ARRAY = (By.CLASS_NAME, "inventory_item_price")
+    SORTED_BY_NAME_ITEMS_ARRAY = (By.CLASS_NAME, "inventory_item_name")
 
 
 class CartPageLocators():
@@ -26,3 +33,4 @@ class CartPageLocators():
     SELECTED_ITEM_2_TITLE = (By.ID, "item_0_title_link")
     CART_ITEMS = (By.CSS_SELECTOR, ".cart_list > .cart_item")
     ITEMS_QUANTITY = (By.CLASS_NAME, "shopping_cart_badge")
+    CONTINUE_SHOPPING = (By.ID, "continue-shopping")
