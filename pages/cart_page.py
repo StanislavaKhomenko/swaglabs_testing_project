@@ -34,3 +34,7 @@ class CartPage(BasePage):
         items_quantity = self.browser.find_element(*CartPageLocators.ITEMS_QUANTITY)
         cart_items = self.browser.find_elements(*CartPageLocators.CART_ITEMS)
         assert int(items_quantity.text) == len(cart_items), "Cart shows incorrect items quantity"
+
+    def should_be_able_to_go_back_to_products(self):
+        continue_shopping_button = self.browser.find_element(*CartPageLocators.CONTINUE_SHOPPING)
+        continue_shopping_button.click()
