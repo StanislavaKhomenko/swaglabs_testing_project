@@ -1,4 +1,5 @@
 from .base_page import BasePage
+from .locators import CartPageLocators
 from .locators import ProductPageLocators
 
 
@@ -103,3 +104,41 @@ class ProductPage(BasePage):
             sorted_list.append(i.text)
 
         assert sorted_list == sorted(sorted_list, reverse=True), "Sorting by name from Z to A hasn't been done accurate"
+
+    def add_first_item_of_sorted_list_to_cart(self):
+        first_item_of_sorted_list = self.browser.find_element(*ProductPageLocators.FIRST_ITEM_AFTER_SORTING_ADD_TO_CART)
+        first_item_of_sorted_list.click()
+
+    def should_be_sorting_by_price_from_low_to_high_and_adding_first_option_to_cart(self):
+        self.should_be_sorting_by_price_from_low_to_high()
+        self.should_be_correct_sorting_by_price_from_low_to_high()
+        self.add_first_item_of_sorted_list_to_cart()
+
+    def should_be_sorting_by_price_from_high_to_low_and_adding_first_option_to_cart(self):
+        self.should_be_sorting_by_price_from_high_to_low()
+        self.should_be_correct_sorting_by_price_from_high_to_low()
+        self.add_first_item_of_sorted_list_to_cart()
+
+    def should_be_sorting_by_name_from_a_to_z_and_adding_first_option_to_cart(self):
+        self.should_be_sorting_by_name_from_a_to_z()
+        self.should_be_correct_sorting_by_name_from_a_to_z()
+        self.add_first_item_of_sorted_list_to_cart()
+
+    def should_be_sorting_by_name_from_z_to_a_and_adding_first_option_to_cart(self):
+        self.should_be_sorting_by_name_from_z_to_a()
+        self.should_be_correct_sorting_by_name_from_z_to_a()
+        self.add_first_item_of_sorted_list_to_cart()
+
+    def should_be_correct_price_of_first_item_of_sorted_list_in_cart(self):
+        first_item_of_sorted_list_price = self.browser.find_element(*ProductPageLocators.FIRST_ITEM_AFTER_SORTING_PRICE)
+        price_of_selected_item_in_cart = self.browser.find_element(*CartPageLocators.SELECTED_ITEM_PRICE)
+        assert first_item_of_sorted_list_price.text == price_of_selected_item_in_cart.text, "Price of selected item " \
+                                                                                            "in cart doesn't match " \
+                                                                                            "it's original price "
+
+    def should_be_correct_title_of_first_item_of_sorted_list_in_cart(self):
+        first_item_of_sorted_list_title = self.browser.find_element(*ProductPageLocators.FIRST_ITEM_AFTER_SORTING_TITLE)
+        title_of_selected_item_in_cart = self.browser.find_element(*CartPageLocators.SELECTED_ITEM_TITLE)
+        assert first_item_of_sorted_list_title.text == title_of_selected_item_in_cart.text, "Title of selected item " \
+                                                                                            "in cart doesn't match " \
+                                                                                            "it's original title "

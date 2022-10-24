@@ -58,9 +58,74 @@ class TestProductPage():
             page.open()
             page.should_be_correct_sorting_by_name_from_z_to_a()
 
+    class TestUserCanSelectProductsFromSortedList():
+        def test_user_can_sort_products_by_price_and_select_first_option_low(self, browser):
+            page = ProductPage(browser, link)
+            page.open()
+            page.should_be_sorting_by_price_from_low_to_high_and_adding_first_option_to_cart()
+            page = CartPage(browser, link)
+            page.go_to_cart()
+            page.should_be_correct_quantity_of_selected_items()
+
+        def test_user_should_see_correct_product_selected_from_list_sorted_by_price_low(self, browser):
+            page = ProductPage(browser, link)
+            page.open()
+            page.should_be_sorting_by_price_from_low_to_high_and_adding_first_option_to_cart()
+            page.should_be_correct_title_of_first_item_of_sorted_list_in_cart()
+            page.should_be_correct_price_of_first_item_of_sorted_list_in_cart()
+
+        def test_user_can_sort_products_by_price_and_select_first_option_high(self, browser):
+            page = ProductPage(browser, link)
+            page.open()
+            page.should_be_sorting_by_price_from_high_to_low_and_adding_first_option_to_cart()
+            page = CartPage(browser, link)
+            page.go_to_cart()
+            page.should_be_correct_quantity_of_selected_items()
+
+        def test_user_should_see_correct_product_selected_from_list_sorted_by_price_high(self, browser):
+            page = ProductPage(browser, link)
+            page.open()
+            page.should_be_sorting_by_price_from_high_to_low_and_adding_first_option_to_cart()
+            page.should_be_correct_title_of_first_item_of_sorted_list_in_cart()
+            page.should_be_correct_price_of_first_item_of_sorted_list_in_cart()
+
+        def test_user_can_sort_products_by_name_and_select_first_option_from_a(self, browser):
+            page = ProductPage(browser, link)
+            page.open()
+            page.should_be_sorting_by_name_from_a_to_z_and_adding_first_option_to_cart()
+            page = CartPage(browser, link)
+            page.go_to_cart()
+            page.should_be_correct_quantity_of_selected_items()
+
+        def test_user_should_see_correct_product_selected_from_list_sorted_by_name_a(self, browser):
+            page = ProductPage(browser, link)
+            page.open()
+            page.should_be_sorting_by_name_from_a_to_z_and_adding_first_option_to_cart()
+            page.should_be_correct_title_of_first_item_of_sorted_list_in_cart()
+            page.should_be_correct_price_of_first_item_of_sorted_list_in_cart()
+
+        def test_user_can_sort_products_by_name_and_select_first_option_from_z(self, browser):
+            page = ProductPage(browser, link)
+            page.open()
+            page.should_be_sorting_by_name_from_z_to_a_and_adding_first_option_to_cart()
+            page = CartPage(browser, link)
+            page.go_to_cart()
+            page.should_be_correct_quantity_of_selected_items()
+
+        def test_user_should_see_correct_product_selected_from_list_sorted_by_name_z(self, browser):
+            page = ProductPage(browser, link)
+            page.open()
+            page.should_be_sorting_by_name_from_z_to_a_and_adding_first_option_to_cart()
+            page.should_be_correct_title_of_first_item_of_sorted_list_in_cart()
+            page.should_be_correct_price_of_first_item_of_sorted_list_in_cart()
+
     class TestUserCanAddProduct1ToCart():
         @pytest.fixture(scope="function", autouse=True)
         def setup(self, browser):
+            page = LoginPage(browser, link)
+            page.open()
+            page.user_should_be_able_to_login()
+            page.should_be_authorized_user()
             page = ProductPage(browser, link)
             page.open()
             page.should_be_add_to_basket_button_item_1()
@@ -103,8 +168,11 @@ class TestProductPage():
     class TestUserCanAddProduct2ToCart():
         @pytest.fixture(scope="function", autouse=True)
         def setup(self, browser):
-            page = ProductPage(browser, link)
+            page = LoginPage(browser, link)
             page.open()
+            page.user_should_be_able_to_login()
+            page.should_be_authorized_user()
+            page = ProductPage(browser, link)
             page.should_be_add_to_basket_button_item_1()
             page.should_be_add_to_basket_button_item_2()
 

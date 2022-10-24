@@ -24,6 +24,11 @@ class ProductPageLocators():
     SORT_BY_NAME_FROM_Z_TO_A = (By.CSS_SELECTOR, "option[value='za']")
     SORTED_BY_PRICE_ITEMS_ARRAY = (By.CLASS_NAME, "inventory_item_price")
     SORTED_BY_NAME_ITEMS_ARRAY = (By.CLASS_NAME, "inventory_item_name")
+    FIRST_ITEM_AFTER_SORTING_ADD_TO_CART = (By.CSS_SELECTOR, ".inventory_item:nth-child(1):first-of-type button")
+    FIRST_ITEM_AFTER_SORTING_TITLE = (By.CSS_SELECTOR, ".inventory_item:nth-child(1):first-of-type a > "
+                                                       ".inventory_item_name")
+    FIRST_ITEM_AFTER_SORTING_PRICE = (By.CSS_SELECTOR, ".inventory_item:nth-child(1) > .inventory_item_description > "
+                                                       ".pricebar > .inventory_item_price")
 
 
 class CartPageLocators():
@@ -31,6 +36,8 @@ class CartPageLocators():
     CART_TITLE = (By.CLASS_NAME, "title")
     SELECTED_ITEM_1_TITLE = (By.ID, "item_2_title_link")
     SELECTED_ITEM_2_TITLE = (By.ID, "item_0_title_link")
+    SELECTED_ITEM_PRICE = (By.CLASS_NAME, "inventory_item_price")
+    SELECTED_ITEM_TITLE = (By.CLASS_NAME, "inventory_item_name")
     CART_ITEMS = (By.CSS_SELECTOR, ".cart_list > .cart_item")
     ITEMS_QUANTITY = (By.CLASS_NAME, "shopping_cart_badge")
     CONTINUE_SHOPPING = (By.ID, "continue-shopping")
