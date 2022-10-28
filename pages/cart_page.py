@@ -38,3 +38,40 @@ class CartPage(BasePage):
     def should_be_able_to_go_back_to_products(self):
         continue_shopping_button = self.browser.find_element(*CartPageLocators.CONTINUE_SHOPPING)
         continue_shopping_button.click()
+
+    def should_be_remove_item_1_button(self):
+        assert self.is_element_present(*CartPageLocators.REMOVE_ITEM_1_BUTTON), "Remove button in front of Item 1 is " \
+                                                                                "absent "
+
+    def should_be_clickable_remove_item_1_button(self):
+        remove_item_1_button = self.browser.find_element(*CartPageLocators.REMOVE_ITEM_1_BUTTON)
+        remove_item_1_button.click()
+
+    def should_be_remove_item_2_button(self):
+        assert self.is_element_present(*CartPageLocators.REMOVE_ITEM_2_BUTTON), "Remove button in front of Item 2 is " \
+                                                                                "absent "
+
+    def should_be_clickable_remove_item_2_button(self):
+        remove_item_2_button = self.browser.find_element(*CartPageLocators.REMOVE_ITEM_2_BUTTON)
+        remove_item_2_button.click()
+
+    def should_be_checkout_button(self):
+        assert self.is_element_present(*CartPageLocators.CHECKOUT_BUTTON), "Checkout button is absent"
+
+    def should_be_clickable_checkout_button(self):
+        checkout_button = self.browser.find_element(*CartPageLocators.CHECKOUT_BUTTON)
+        checkout_button.click()
+
+    def should_be_first_step_of_checkout(self):
+        self.should_be_first_name_field_on_the_first_step_of_checkout()
+        self.should_be_last_name_field_on_the_first_step_of_checkout()
+        self.should_be_postal_code_field_on_the_first_step_of_checkout()
+
+    def should_be_first_name_field_on_the_first_step_of_checkout(self):
+        assert self.is_element_present(*CartPageLocators.CHECKOUT_FIRST_NAME_FIELD), "First name field is absent"
+
+    def should_be_last_name_field_on_the_first_step_of_checkout(self):
+        assert self.is_element_present(*CartPageLocators.CHECKOUT_LAST_NAME_FIELD), "Last name field is absent"
+
+    def should_be_postal_code_field_on_the_first_step_of_checkout(self):
+        assert self.is_element_present(*CartPageLocators.CHECKOUT_POSTAL_CODE_FIELD), "Postal code field is absent"
