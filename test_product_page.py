@@ -75,8 +75,7 @@ class TestUserCanSelectProductsFromSortedList(TestProductPage):
         page = ProductPage(browser, link)
         page.open()
         page.should_be_sorting_by_price_from_low_to_high_and_adding_first_option_to_cart()
-        page.should_be_correct_title_of_first_item_of_sorted_list_in_cart()
-        page.should_be_correct_price_of_first_item_of_sorted_list_in_cart()
+        page.should_be_first_item_of_sorted_list_in_cart()
 
     def test_user_can_sort_products_by_price_and_select_first_option_high(self, browser, setup):
         page = ProductPage(browser, link)
@@ -90,8 +89,7 @@ class TestUserCanSelectProductsFromSortedList(TestProductPage):
         page = ProductPage(browser, link)
         page.open()
         page.should_be_sorting_by_price_from_high_to_low_and_adding_first_option_to_cart()
-        page.should_be_correct_title_of_first_item_of_sorted_list_in_cart()
-        page.should_be_correct_price_of_first_item_of_sorted_list_in_cart()
+        page.should_be_first_item_of_sorted_list_in_cart()
 
     def test_user_can_sort_products_by_name_and_select_first_option_from_a(self, browser, setup):
         page = ProductPage(browser, link)
@@ -105,8 +103,7 @@ class TestUserCanSelectProductsFromSortedList(TestProductPage):
         page = ProductPage(browser, link)
         page.open()
         page.should_be_sorting_by_name_from_a_to_z_and_adding_first_option_to_cart()
-        page.should_be_correct_title_of_first_item_of_sorted_list_in_cart()
-        page.should_be_correct_price_of_first_item_of_sorted_list_in_cart()
+        page.should_be_first_item_of_sorted_list_in_cart()
 
     def test_user_can_sort_products_by_name_and_select_first_option_from_z(self, browser, setup):
         page = ProductPage(browser, link)
@@ -120,8 +117,7 @@ class TestUserCanSelectProductsFromSortedList(TestProductPage):
         page = ProductPage(browser, link)
         page.open()
         page.should_be_sorting_by_name_from_z_to_a_and_adding_first_option_to_cart()
-        page.should_be_correct_title_of_first_item_of_sorted_list_in_cart()
-        page.should_be_correct_price_of_first_item_of_sorted_list_in_cart()
+        page.should_be_first_item_of_sorted_list_in_cart()
 
 
 class TestUserCanAddProduct1ToCart(TestProductPage):

@@ -152,3 +152,7 @@ class ProductPage(BasePage):
         assert first_item_of_sorted_list_title.text == title_of_selected_item_in_cart.text, "Title of selected item " \
                                                                                             "in cart doesn't match " \
                                                                                             "it's original title "
+
+    def should_be_first_item_of_sorted_list_in_cart(self):
+        self.should_be_correct_price_of_first_item_of_sorted_list_in_cart()
+        self.should_be_correct_title_of_first_item_of_sorted_list_in_cart()

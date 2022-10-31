@@ -1,5 +1,6 @@
 from .locators import CartPageLocators
 from .locators import LoginPageLocators
+from .locators import ProductPageLocators
 from selenium.common.exceptions import NoSuchElementException
 
 
