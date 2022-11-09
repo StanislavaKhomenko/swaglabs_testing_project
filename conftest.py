@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.options import Options
 
 
 @pytest.fixture(scope="function")
-def browser(request):
+def browser():
     print("\nstart browser for test..")
     options = Options()
     browser = webdriver.Chrome(options=options)

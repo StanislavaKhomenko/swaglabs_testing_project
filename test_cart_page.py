@@ -7,7 +7,7 @@ link = "https://www.saucedemo.com/cart.html"
 
 
 class TestCartPage():
-    @pytest.fixture(scope="function", autouse=True)
+    @pytest.fixture()
     def setup(self, browser):
         page = LoginPage(browser, link)
         page.open()

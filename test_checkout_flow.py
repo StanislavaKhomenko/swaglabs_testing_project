@@ -5,7 +5,7 @@ import pytest
 
 
 class TestCheckoutFlow():
-    @pytest.fixture(scope="function", autouse=True)
+    @pytest.fixture()
     def setup(self, browser):
         link = "https://www.saucedemo.com"
         page = LoginPage(browser, link)
